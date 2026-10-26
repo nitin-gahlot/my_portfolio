@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Nitin Gahlot — BCA student and aspiring software developer building, learning and growing with responsible AI." />
+  <title>Nitin Gahlot | Learn. Build. Grow.</title>
+  <style>
+    :root {
+      --navy: #071525;
+      --blue: #0d2940;
+      --teal: #14b8a6;
+      --amber: #f59e0b;
+      --white: #f8fafc;
+      --slate: #cbd5e1;
+      --muted: #94a3b8;
+      --line: rgba(148, 163, 184, .2);
+      --shadow: 0 20px 60px rgba(0,0,0,.24);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--white);
+      background: var(--navy);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(7, 21, 37, .86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .2px; }
+    .mini-mark { width: 36px; height: 36px; border: 2px solid var(--teal); border-radius: 11px; display: grid; place-items: center; color: var(--white); font-weight: 900; position: relative; }
+    .mini-mark::after { content: ""; position: absolute; width: 17px; height: 17px; border: 2px solid var(--amber); border-radius: 50%; transform: rotate(-25deg); }
+    .mini-mark span { position: relative; z-index: 1; font-size: 10px; }
+    .nav-links { display: flex; gap: 22px; color: var(--muted); font-size: 14px; }
+    .nav-links a:hover { color: var(--teal); }
+    .hero { padding: 92px 0 84px; overflow: hidden; position: relative; }
+    .hero::before { content: ""; position: absolute; width: 560px; height: 560px; border-radius: 50%; background: rgba(20,184,166,.10); filter: blur(20px); right: -160px; top: -180px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; position: relative; }
+    .eyebrow { text-transform: uppercase; letter-spacing: 3px; font-size: 12px; color: var(--amber); font-weight: 800; }
+    h1, h2, h3 { line-height: 1.1; margin: 0; letter-spacing: -.03em; }
+    h1 { font-size: clamp(44px, 7vw, 82px); max-width: 760px; margin-top: 18px; }
+    h1 span { color: var(--teal); }
+    .lead { color: var(--slate); font-size: clamp(18px, 2.2vw, 22px); max-width: 650px; margin: 24px 0 0; }
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+    .button { display: inline-flex; align-items: center; gap: 8px; padding: 13px 19px; border-radius: 999px; border: 1px solid var(--line); font-weight: 800; font-size: 14px; transition: .2s ease; }
+    .button.primary { background: var(--teal); color: #04201f; border-color: var(--teal); }
+    .button.secondary:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+    .button.primary:hover { background: #2dd4bf; transform: translateY(-2px); }
+    .hero-card { min-height: 410px; border: 1px solid var(--line); border-radius: 32px; background: linear-gradient(145deg, rgba(13,41,64,.92), rgba(7,21,37,.92)); box-shadow: var(--shadow); display: grid; place-items: center; position: relative; overflow: hidden; }
+    .hero-card::before { content: ""; position: absolute; width: 250px; height: 250px; border: 2px solid rgba(245,158,11,.7); border-radius: 50%; transform: rotate(35deg); }
+    .hero-card::after { content: ""; position: absolute; inset: 18px; border: 1px solid rgba(20,184,166,.34); border-radius: 24px; }
+    .monogram { width: 210px; height: 210px; border: 7px solid var(--teal); border-radius: 60px; display: grid; place-items: center; position: relative; z-index: 2; background: #0a2034; box-shadow: 0 0 0 16px rgba(245,158,11,.09); }
+    .monogram strong { font-size: 72px; letter-spacing: -12px; margin-right: 12px; }
+    .monogram i { position: absolute; width: 22px; height: 22px; right: 26px; top: 26px; background: var(--amber); border-radius: 50%; }
+    section { padding: 82px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 30px; }
+    .section-head h2 { font-size: clamp(30px, 4vw, 46px); }
+    .section-head p { color: var(--muted); max-width: 500px; margin: 0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .card { background: rgba(13,41,64,.68); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+    .card h3 { font-size: 21px; margin-bottom: 10px; }
+    .card p { color: var(--slate); margin: 0; }
+    .card small { color: var(--amber); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    .pill { border: 1px solid rgba(20,184,166,.4); color: #99f6e4; background: rgba(20,184,166,.08); padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+    .values { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-top: 18px; }
+    .value { padding: 13px 14px; background: rgba(7,21,37,.5); border-radius: 14px; color: var(--slate); border-left: 3px solid var(--teal); }
+    .value b { color: var(--white); display: block; margin-bottom: 2px; }
+    .timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+    .timeline div { min-height: 108px; border-radius: 16px; padding: 14px; background: rgba(7,21,37,.7); border: 1px solid var(--line); }
+    .timeline strong { display: block; color: var(--amber); font-size: 22px; }
+    .timeline span { display: block; color: var(--slate); font-size: 13px; margin-top: 5px; }
+    .post { position: relative; overflow: hidden; }
+    .post::before { content: ""; position: absolute; width: 8px; inset: 0 auto 0 0; background: var(--amber); }
+    .post h3, .post p { margin-left: 14px; }
+    .quote { font-size: 22px; font-weight: 800; color: var(--white); border-left: 4px solid var(--amber); padding-left: 20px; margin: 0; }
+    .metrics { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+    .metric { text-align: center; padding: 22px 12px; border-radius: 18px; background: rgba(20,184,166,.08); border: 1px solid rgba(20,184,166,.25); }
+    .metric strong { display: block; color: var(--teal); font-size: 30px; }
+    .metric span { color: var(--muted); font-size: 13px; }
+    .contact { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 28px; }
+    footer { padding: 28px 0 44px; color: var(--muted); font-size: 13px; }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .muted { color: var(--muted); }
+    @media (max-width: 850px) {
+      .hero-grid, .grid-2, .contact { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .hero-card { min-height: 300px; }
+      .timeline { grid-template-columns: repeat(2,1fr); }
+      .metrics { grid-template-columns: repeat(2,1fr); }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 480px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .hero { padding-top: 64px; }
+      .values { grid-template-columns: 1fr; }
+      .timeline { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top"><span class="mini-mark"><span>NG</span></span> Nitin Gahlot</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a><a href="#campaign">Campaign</a><a href="#content">Content</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">BCA Student · Aspiring Software Developer</div>
+          <h1>Learn.<br><span>Build.</span><br>Grow.</h1>
+          <p class="lead">I am Nitin Gahlot, building my early-career identity through practical projects, technical learning and responsible AI-assisted work.</p>
+          <div class="actions">
+            <a class="button primary" href="https://www.linkedin.com/in/nitin-gahlot-4526943b8" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
+            <a class="button secondary" href="#campaign">Explore my campaign ↓</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="Nitin Gahlot NG monogram">
+          <div class="monogram"><strong>NG</strong><i></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">01 · Brand strategy</div><h2>Learning with purpose.</h2></div><p>My brand connects consistent learning with visible practice and clear communication.</p></div>
+        <div class="grid-2">
+          <article class="card"><small>Mission</small><h3>Build useful skills and share the journey.</h3><p>My mission is to strengthen my programming fundamentals, build practical projects and communicate what I learn with honesty and clarity.</p><div class="pill-row"><span class="pill">Continuous learning</span><span class="pill">Practical projects</span><span class="pill">Responsible AI</span></div></article>
+          <article class="card"><small>Positioning</small><h3>Student-to-developer journey.</h3><p>I share beginner-friendly explanations, project progress, problem-solving reflections and career lessons while preparing for future software opportunities.</p><div class="pill-row"><span class="pill">Clear</span><span class="pill">Practical</span><span class="pill">Honest</span></div></article>
+        </div>
+        <div class="values">
+          <div class="value"><b>Continuous learning</b>Improve through deliberate practice.</div>
+          <div class="value"><b>Consistency</b>Make small, visible progress.</div>
+          <div class="value"><b>Integrity</b>Share genuine work and acknowledge limits.</div>
+          <div class="value"><b>Curiosity</b>Ask better questions and test assumptions.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="campaign">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">02 · 30-day challenge</div><h2>One useful idea at a time.</h2></div><p>A LinkedIn-first campaign across five content pillars: fundamentals, projects, responsible AI, career learning and reflection.</p></div>
+        <div class="timeline">
+          <div><strong>01–07</strong><span>Introduction, goals and learning habits</span></div>
+          <div><strong>08–14</strong><span>Python, debugging and technical explanations</span></div>
+          <div><strong>15–20</strong><span>Planning, clean code and networking</span></div>
+          <div><strong>21–27</strong><span>Portfolio evidence, AI and feedback</span></div>
+          <div><strong>28–30</strong><span>Synthesis, next plan and final reflection</span></div>
+        </div>
+        <div class="grid-3" style="margin-top:18px">
+          <article class="card"><small>Audience</small><h3>Who I want to reach</h3><p>Recruiters, developers, internship providers, BCA students and beginners learning technology.</p></article>
+          <article class="card"><small>Platform</small><h3>Why LinkedIn</h3><p>It combines professional identity, publishing, networking, profile discovery and campaign analytics.</p></article>
+          <article class="card"><small>Promise</small><h3>What followers get</h3><p>Simple explanations, honest progress, practical examples and lessons from the process.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="content">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">03 · Featured content</div><h2>Learn in public.</h2></div><p>Selected examples from the AI-assisted content portfolio created for the capstone.</p></div>
+        <div class="grid-2">
+          <article class="card post"><small>LinkedIn post · Responsible AI</small><h3>AI can help me write code faster. It cannot replace understanding.</h3><p>My checklist: explain the code, run it in my environment, test edge cases, check the libraries and rewrite the explanation in my own words.</p></article>
+          <article class="card post"><small>LinkedIn post · Debugging</small><h3>Debugging is a process of reducing uncertainty.</h3><p>Reproduce the problem, read the exact error, isolate the smallest failing part, test one change and document what solved it.</p></article>
+          <article class="card post"><small>Project thinking</small><h3>A project becomes stronger when it starts with a real problem.</h3><p>Before adding features, ask who will use it, what problem it solves, what the smallest useful version is and how it will be tested.</p></article>
+          <article class="card post"><small>Campaign reflection</small><h3>Consistency creates evidence.</h3><p>Thirty days of documentation turns learning into a visible pattern: one lesson, one explanation and one next action at a time.</p></article>
+        </div>
+        <div class="card" style="margin-top:18px"><p class="quote">“My goal is not to look perfect. It is to become more consistent at learning, building and explaining what I learn.”</p></div>
+      </div>
+    </section>
+
+    <section id="ai">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">04 · AI with responsibility</div><h2>Use AI. Keep ownership.</h2></div><p>AI supports the process, but final accuracy, originality and understanding remain my responsibility.</p></div>
+        <div class="grid-3">
+          <article class="card"><small>Ideate</small><h3>Ask better questions.</h3><p>Use AI for campaign themes, content pillars, practice questions and alternative explanations.</p></article>
+          <article class="card"><small>Verify</small><h3>Test before sharing.</h3><p>Read, run, check documentation, test edge cases and remove unsupported claims.</p></article>
+          <article class="card"><small>Personalise</small><h3>Make it mine.</h3><p>Add personal context, rewrite in my own voice and never invent projects, results or credentials.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="analytics">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">05 · Campaign measurement</div><h2>Progress with evidence.</h2></div><p>These are campaign targets and measurement categories. Actual results should be added after publishing.</p></div>
+        <div class="metrics">
+          <div class="metric"><strong>30</strong><span>planned posts</span></div>
+          <div class="metric"><strong>5</strong><span>content pillars</span></div>
+          <div class="metric"><strong>3–6%</strong><span>target engagement rate</span></div>
+          <div class="metric"><strong>60</strong><span>next-plan horizon in days</span></div>
+        </div>
+        <div class="card" style="margin-top:18px"><h3>What I will measure</h3><p>Impressions, reactions, comments, reposts, profile visits, follower growth and engagement rate. I will focus on relevant conversations and learning quality, not only vanity metrics.</p></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact card">
+        <div><div class="eyebrow">Let’s connect</div><h2 style="margin-top:10px">I am learning, building and growing.</h2><p class="muted">For professional conversations, feedback or collaboration, connect with me on LinkedIn.</p></div>
+        <a class="button primary" href="https://www.linkedin.com/in/nitin-gahlot-4526943b8" target="_blank" rel="noopener">View LinkedIn ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row"><span>© 2026 Nitin Gahlot · BCA · Roll No. 2501060047</span><span>Built around the capstone theme: Learn. Build. Grow.</span></div>
+  </footer>
+</body>
+</html>
